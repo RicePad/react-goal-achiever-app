@@ -6,7 +6,7 @@ class SignIn extends Component{
     
     render(){
         return(
-            <div> Sign In Component </div>
+            <div> Sign In from Component </div>
             );
         
         
