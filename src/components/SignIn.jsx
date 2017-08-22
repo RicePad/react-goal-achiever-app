@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { firebaseApp } from '../firebase'
 
 
@@ -8,7 +9,10 @@ class SignIn extends Component{
         
         this.state={
             email: '',
-            password: ''
+            password: '',
+            error: {
+                message: ''
+            }
             
         };
         
@@ -17,6 +21,12 @@ class SignIn extends Component{
     
     signIn(){
         console.log('this.state', this.state);
+        const { email, password } = this.state;
+        firebaseApp.auth().signInWithEmailAndPassword(email, password)
+        .catch(error => {
+            this.setState({error});
+            
+        });
 
     }
     
@@ -42,6 +52,8 @@ class SignIn extends Component{
                     onClick={() => this.signIn()}
                 >Log In</button>
             </div>
+            <div>{this.state.error.message}</div>
+            <div><Link to={'/signup'}>Not a registered user? Sign Up instead</Link></div>
             </div>
             );
         

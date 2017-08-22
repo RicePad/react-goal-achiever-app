@@ -12,11 +12,11 @@ import { firebaseApp } from './firebase';
 firebaseApp.auth().onAuthStateChanged(user => {
     if (user) {
         console.log("user has signed in or up", user);
-        
+        browserHistory.push('/app');
         
     } else {
         console.log("user has signed out or needs to sign in");
-        
+        browserHistory.replace('/signin');
     }
     
     
