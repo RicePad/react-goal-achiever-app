@@ -34,7 +34,7 @@
     "react-bootstrap": "^0.31.2",
     "react-dom": "^0.14.3",
     "react-redux": "^4.3.0",
-    "react-router": "^2.8.1",
+    "react-router": "^3.0.1",
     "redux": "^3.7.2",
     "youtube-api-search": "0.0.5"
   }
