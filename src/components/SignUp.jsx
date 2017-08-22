@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { firebaseApp } from '../firebase';
 
 class SignUp extends Component {
  constructor(props){
@@ -14,6 +15,8 @@ class SignUp extends Component {
  
  signUp(){
   console.log('this.state', this.state);
+  firebaseApp.auth().createUserWithEmailAndPassword();
+  
   
  }
  
@@ -21,7 +24,7 @@ class SignUp extends Component {
  render(){
      return(
             <div className="form-inline">
-             <h1>Sign Up Page</h1>
+             <h2>Sign Up Page</h2>
             <div className="form-group">
                  <input
                  className="form-control"
@@ -36,7 +39,7 @@ class SignUp extends Component {
                  onChange={(event) => this.setState({password: event.target.value})}
                  />
               <button
-               className="btn btn-successful"
+               className="btn btn-primary"
                onClick={() => this.signUp()}
              > Sign Up</button>
             </div>
