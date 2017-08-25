@@ -1,57 +1,39 @@
 import React, { Component } from 'react';
-// import SignIn from '../components/SignIn';
-// import SignUp from '../components/SignUp'
-import { firebaseApp } from '../firebase'
 import { connect } from 'react-redux';
+import { firebaseApp } from '../firebase';
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
 
-
 class App extends Component {
-    
-    
-    signOut(){
-        firebaseApp.auth().signOut();
+  signOut() {
+    firebaseApp.auth().signOut();
+  }
+
+  render() {
+    return (
+      <div style={{margin: '5px'}}>
+        <h3>Goal Achiever App</h3>
+        <AddGoal />
+        <hr />
+        <h4>Goals</h4>
+        <GoalList />
+        <hr />
         
-    }
-    
-    render(){
-        console.log('this.props.goals', this.props.goals);
-        return(
-            <div>
-                <div>
-                    <h2>Goals</h2>
-                    <div><AddGoal /></div>
-                    <div><GoalList /></div>
-                
-                </div>
-                <button
-                 className="btn btn-danger"
-                 onClick={() => this.signOut()}
-                >
-                    Sign Out
-                </button>
-                    
-            </div>
-            
-          
-        
-            
-        
-            
-            );
-        
-        
-    }
-    
-    
-    
+        <hr />
+        <button
+          className="btn btn-danger"
+          onClick={() => this.signOut()}
+        >
+          Sign Out
+        </button>
+      </div>
+    )
+  }
 }
 
-function mapStateToProps(state){
-    console.log('state', state);
-    return {};
+function mapStateToProps(state) {
+  // console.log('state', state);
+  return {}
 }
-
 
 export default connect(mapStateToProps, null)(App);
