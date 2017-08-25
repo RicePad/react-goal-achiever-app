@@ -16,6 +16,7 @@ class App extends Component {
     }
     
     render(){
+        console.log('this.props.goals', this.props.goals);
         return(
             <div>
                 <div>
