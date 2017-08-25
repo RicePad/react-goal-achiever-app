@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import SignIn from '../components/SignIn';
 // import SignUp from '../components/SignUp'
 import { firebaseApp } from '../firebase'
+import { connect } from 'react-redux';
 
 
 class App extends Component {
@@ -39,6 +40,10 @@ class App extends Component {
     
 }
 
+function mapStateToProps(state){
+    console.log('state', state);
+    return {};
+}
 
 
-export default App;
+export default connect(mapStateToProps, null)(App);
